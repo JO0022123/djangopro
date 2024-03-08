@@ -1,0 +1,71 @@
+{% load static %}
+<div class="top-navbar">
+    <div class="top-icons">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+    </div>
+    <div class="other-links">
+        
+        {% if request.user.is_authenticated %}
+        <a class="nav-link" style="display: inline;" aria-current="page" href="#"><i class="fa fa-user"></i> {{request.user}}</a>
+        <a class="nav-link" style="display: inline;" aria-current="page" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+      {% else %}
+        <a class="nav-link" style="display: inline;" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a>
+        <a class="nav-link" style="display: inline;" href="{% url 'signup' %}"><i class="fa fa-users"></i> Register</a>
+      {% endif %}
+      <i class="fa-solid fa-user"></i>
+      <a class="nav-link" style="display: inline;" href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+</div>
+<!-- top navbar -->
+
+<div class="home-section">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="" width="180px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa-solid fa-bars" style="color: white;"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'je' %}">Offer</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                  Category
+                </a>
+                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                  {% if catagory %}
+                  {% for item in catagory%}
+                  <a  class="dropdown-item" href="{% url 'category' item.name %}" style="text-decoration: none;"> {{ item.name }}  </a>
+                    {% endfor %}
+                  {% endif %}
+                  <hr>
+                  <a class="dropdown-item border-0 transition-link" href="{% url 'all-categories' %}">All Categories</a>
+                  
+                 </div>
+                 
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact'%}">Contact Us</a>
+              </li>
+            </ul>
+           
+            <form class="d-flex" action="{% url 'home' %}">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-outline-success" type="submit" id="search-btn" >Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <!-- navbar -->

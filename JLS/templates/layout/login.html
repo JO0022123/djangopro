@@ -1,0 +1,30 @@
+{% extends 'layout/main.html' %}
+{% block content %}
+<div class="container login">
+    <div class="row">
+        <div class="col-md-4" id="side1">
+            <h3>Hello Customer!</h3>
+            <p>Create New Account</p>
+            <div id="btn"><a href="signup.html">Sign up</a></div>
+        </div>
+        <div class="col-md-8" id="side2">
+            <h3>Login Account</h3>
+            <div class="inp">
+                <form  action="" method="POST" novalidate>
+                    {% csrf_token %}
+                <input type="text" placeholder="username" required id="username" name="username">
+                <input type="text" placeholder="Password" required id="password" name="password">
+            </div>
+            <p>Forgot Your Password</p>
+            <div class="icons">
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div id="login"><button>LOG IN</button></div>
+           
+            {% include 'inc/message.html' %}
+        </form>      </div>
+    </div>
+</div>
+{% endblock content %}

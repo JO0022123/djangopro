@@ -1,0 +1,119 @@
+
+{% extends 'layout/main.html' %}
+{% block content %}
+ <!-- home content -->
+ {% load static %}
+ {% include 'inc/message.html' %}
+ <style>
+    h5,p{
+  font-family: "Sofia", sans-serif;
+}
+ </style>
+ <section class="home">
+    <div class="content">
+        <h3>Biggest Jewellery Sale
+            <br> <span>Up To 20% Off</span>
+        </h3>
+        <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry sets of famous jewelers</p>
+        <button id="shopnow">Shop Now</button>
+    </div>
+    <div class="img">
+        <img src="{% static 'images/b2.png' %}" alt="">
+    </div>
+</section>
+</div>
+<!-- home content -->
+ <!-- top cards -->
+ <!--<div class="container" id="top-cards">
+    <div class="row">
+        <div class="col-md-4 py-3 py-md-0">
+            <div class="card" style="background-color: #a9a9a926;">
+                <img src="./image/topcard1.png" alt="">
+                <div class="card-img-overlay">
+                    <h5 class="card-titel">Ring</h5>
+                    <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry sets of famous jewelers!</p>
+                    <p><strong>$200.30 <strike>$250.10</strike></strong></p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+            <div class="card" style="background-color: #a9a9a926;">
+                <img src="./image/topcard2.png" alt="">
+                <div class="card-img-overlay">
+                    <h5 class="card-titel">Chain</h5>
+                    <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry sets of famous jewelers.</p>
+                    <p><strong>$150.10 <strike>$200.10</strike></strong></p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+        </div>-
+        {% for item in catagory %}
+        <div class="col-md-4 py-3 py-md-0">
+            <div class="card" style="background-color: #a9a9a926;">
+                <img src="{{item.image.url}}" class="card-image-top my-3 mx-3" alt="Categories">
+                <div class="card-img-overlay">
+                    <h5 class="card-titel">Bracelet</h5>
+                    <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry sets of famous jewelers!..</p>
+                    <p><strong>$50.10 <strike>$60</strike></strong></p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  
+</div>-->
+<section class="bg-light py-4 my-5" style="min-height:500px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Categories</h4>
+            </div>
+           {% for item in catagory %}
+           <div class="col-md-4 col-lg-3">
+            <div class="card">
+                <img src="{{item.image.url}}" class="card-image-top my-3 mx-3" alt="Categories" style="height:200px">
+                <a href="{% url 'category' item.name %}" style="text-decoration: none;">
+                    <div class="card-body">
+                        <h5 class="card-title font-effect-shadow-multiple text-dark">{{ item.name }}</h5>
+                        <p class="card-text " style="color: rgb(206, 88, 200);">{{ item.description }}</p> 
+                        <a href="{% url 'category' item.name %}" class="btn btn-secondary mt-2 ms-5">view details</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</section>
+
+            <!--
+            {% for item in catagory %}
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card" style="background-color: #a9a9a926;">
+                    <img src="{{item.image.url}}" class="card-image-top my-3 mx-3" alt="Categories">
+                    <div class="card-img-overlay">
+                        <h5 class="card-titel">{{ item.name }}</h5>
+                        <p>{{ item.description }}</p>
+                        <a href="" class="btn btn-primary">view details</a>
+                       
+                    </div>
+                </div>
+            </div>
+            {% endfor %}-->
+        </div>
+    </div>
+</section>
+
+<!-- top cards -->
+ <!-- banner -->
+ <div class="banner">
+    <div class="content">
+        <h1>Get Up To 20% Off</h1>
+        <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry sets of famous jewelers...</p>
+        <div id="bannerbtn"><button>SHOP NOW</button></div>
+    </div>
+</div>
+<!-- banner -->
+{% endblock content %} 

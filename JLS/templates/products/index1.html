@@ -1,0 +1,41 @@
+{% extends 'layout/main.html' %}
+{% block content %}
+<!-- banner -->
+<div class="banner3">
+    <div class="content3">
+        <h1>Get More Product</h1>
+        <p>Buy the latest Artificial jewelry for women online from our wide range of Indian imitation wedding jewelry
+            sets of famous jewelers</p>
+        <div id="bannerbtn3"><button>SHOP NOW</button></div>
+    </div>
+</div>
+<!-- banner -->
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{category_name}} Products</h4>
+                <hr style="border-color:#b8bfc2;">
+            </div>
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+             <div class="card">
+                 <img src="{{item.product_image.url}}" class="card-image-top my-3 mx-3" alt="Categories" style="height:300px">
+                 <hr style="border-color:#b8bfc2;">
+                 <a href="{% url 'product_details' category_name item.name %}" style="text-decoration: none;">
+                 <div class="card-body">
+                         <h5 class="card-title text-dark" style="font-family: Audiowide, sans-serif;">{{ item.name }}</h5>
+                         <p class="card-text" style="font-family: Lora, serif;">{{ item.description }}</p>
+                         <p class="card-text">
+                            <span class="float-start old_price text-danger"><s>Rs.{{ item.original_price | stringformat:'d'}}</s></span>
+                            <span class="float-end new_price bg-success text-white p-1 rounded mb-3">Rs.{{ item.selling_price | stringformat:'d' }}</span>
+                          </p>
+                     </div>
+                </a>
+             </div>
+         </div>
+         {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
